@@ -1,0 +1,73 @@
+<li
+  class="animate__animated animate__fadeInUp group relative rounded-3xl bg-slate-50 p-6 dark:bg-slate-800/80 dark:highlight-white/5 hover:bg-slate-100 dark:hover:bg-slate-700/50"
+>
+  <div
+    class="aspect-[672/494] relative rounded-md transform overflow-hidden shadow-[0_2px_8px_rgba(15,23,42,0.08)] bg-slate-200 dark:bg-slate-700"
+  >
+    <!-- BADGE -->
+    <ng-container *ngIf="content.onProgress">
+      <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-red-400 border border-red-400 absolute left-3 top-3 z-20">
+        <ng-container [ngSwitch]="router.url">
+          <span *ngSwitchCase="'/projects'">Working on...</span>
+          <span *ngSwitchDefault>Learning...</span>
+        </ng-container>
+      </span>
+    </ng-container>
+
+    <ng-container *ngIf="router.url == '/projects'">
+      <ng-container *ngIf="content.git">
+        <app-badge asset="assets/icons/github.svg" spacing="15" [link]="content.git"></app-badge>
+      </ng-container>
+      <ng-container *ngIf="content.hosting">
+        <app-badge asset="assets/icons/cloud.svg" spacing="50" [link]="content.hosting"></app-badge>
+      </ng-container>
+      <ng-container *ngIf="content.android">
+        <app-badge asset="assets/icons/android.svg" spacing="85" [link]="content.android"></app-badge>
+      </ng-container>
+      <ng-container *ngIf="content.ios">
+        <app-badge asset="assets/icons/ios.svg" spacing="120" [link]="content.ios"></app-badge>
+      </ng-container>
+    </ng-container>
+
+    <img
+      fetchpriority="high"
+      decoding="async"
+      data-nimg="1"
+      class="absolute inset-0 h-full p-6 w-full"
+      [src]="content.svg"
+    />
+  </div>
+  <div class="flex flex-wrap items-center mt-6">
+    <h2
+      class="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400"
+    >
+      <ng-container *ngIf="router.url != '/projects'">
+        <ng-container *ngIf="content.roadmap">
+          <a [href]="content.roadmap" target="_blank"
+            ><span class="absolute inset-0 rounded-3xl"></span
+          ></a>
+          <svg
+            class="w-6 h-6 flex-none opacity-0 group-hover:opacity-100 float-right"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M9.75 15.25L15.25 9.75M15.25 9.75H10.85M15.25 9.75V14.15"
+              stroke="#0EA5E9"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </ng-container>
+      </ng-container>
+      {{ content.name }}
+    </h2>
+
+    <p
+      class="w-full flex-none text-[0.8125rem] leading-6 text-slate-500 dark:text-slate-400"
+    >
+      {{ content.description }}
+    </p>
+  </div>
+</li>

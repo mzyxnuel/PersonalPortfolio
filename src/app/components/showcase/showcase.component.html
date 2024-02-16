@@ -1,0 +1,30 @@
+<section class="mt-20 bg-gray-900 text-white">
+  <div
+    class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8"
+  >
+    <div class="mx-auto max-w-lg text-center">
+      <h2 class="text-3xl font-bold sm:text-4xl">{{ page.title }}</h2>
+
+      <p class="mt-4 text-gray-300">
+        {{ page.description }}
+        <br />
+        <ng-container *ngIf="page.roadmap">
+          <a
+            [href]="page.roadmap"
+            target="_blank"
+            class="font-bold underline decoration-teal-700 text-slate-500"
+            >Watch my progress.</a
+          >
+        </ng-container>
+      </p>
+    </div>
+
+    <ul
+      class="grid max-w-[26rem] sm:max-w-[52.5rem] mt-16 sm:mt-10 md:mt-20 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto gap-6 lg:gap-y-8 xl:gap-x-8 lg:max-w-7xl px-4 sm:px-6 lg:px-8"
+    >
+      <div *ngFor="let content of page.content">
+        <app-demo [content]="content"></app-demo>
+      </div>
+    </ul>
+  </div>
+</section>

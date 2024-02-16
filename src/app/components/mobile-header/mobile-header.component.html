@@ -1,0 +1,121 @@
+<!-- Mobile menu, show/hide based on menu open state. -->
+<div
+  class="hidden 2xl:hidden"
+  role="dialog"
+  aria-modal="true"
+  id="mobile-header"
+>
+  <!-- Background backdrop, show/hide based on slide-over state. -->
+  <div class="fixed inset-0 z-10 "></div>
+  <div
+    class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-700 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+  >
+    <div class="flex items-center justify-between">
+      <!-- LOGO -->
+      <!-- <a href="#" class="-m-1.5 p-1.5">
+        <span class="sr-only"></span>
+        <img
+        />
+      </a> -->
+
+      <button
+        type="button"
+        id="hideBtn"
+        class="hidden fixed right-3 top-1 transform w-14 h-14 rounded-md p-3 z-50"
+        (click)="hideMobileHeader()"
+      >
+        <span class="sr-only">Close menu</span>
+        <svg
+          viewBox="-0.5 0 25 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M3 21.32L21 3.32001"
+              stroke="#bababa"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="M3 3.32001L21 21.32"
+              stroke="#bababa"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mt-20 flow-root text-white">
+      <div class="-my-6 divide-y divide-gray-500/10">
+        <div class="space-y-2 py-6">
+          <ng-container *ngFor="let page of pages">
+            <ng-container
+              *ngIf="page.id != 'hard-skills'; else DropDownMobile"
+            >
+              <a
+                [routerLink]="page.id"
+                (click)="hideMobileHeader();scrollOnTop()"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-800"
+                [routerLinkActive]="'bg-teal-200/10'"
+              >
+                {{ page.title }}</a
+              >
+            </ng-container>
+
+            <ng-template #DropDownMobile>
+              <div class="-mx-3">
+                <button
+                  type="button"
+                  class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-800"
+                  aria-controls="sub-menu-mobile"
+                  aria-expanded="false"
+                  (click)="toggleSubMenu()"
+                >
+                  {{ page.title }}
+                  <svg class="w-4 h-4" viewBox="0 -4.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>arrow_down [#d4d4d4]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-220.000000, -6684.000000)" fill="#d4d4d4"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M164.292308,6524.36583 L164.292308,6524.36583 C163.902564,6524.77071 163.902564,6525.42619 164.292308,6525.83004 L172.555873,6534.39267 C173.33636,6535.20244 174.602528,6535.20244 175.383014,6534.39267 L183.70754,6525.76791 C184.093286,6525.36716 184.098283,6524.71997 183.717533,6524.31405 C183.328789,6523.89985 182.68821,6523.89467 182.29347,6524.30266 L174.676479,6532.19636 C174.285736,6532.60124 173.653152,6532.60124 173.262409,6532.19636 L165.705379,6524.36583 C165.315635,6523.96094 164.683051,6523.96094 164.292308,6524.36583" id="arrow_down-[#d4d4d4]"> </path> </g> </g> </g> </g></svg>
+                </button>
+
+                <!-- sub-menu -->
+                <div [hidden]="isHidden" class=" mt-2 space-y-2" id="sub-menu-mobile">
+                  <ng-container *ngFor="let subpage of page.children">
+                    <a
+                    [routerLink]="subpage.id"
+                    (click)="hideMobileHeader();scrollOnTop()"
+                    class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 hover:bg-gray-800"
+                    [routerLinkActive]="'bg-teal-200/10'"
+                    ># {{ subpage.title }}</a
+                  >
+                  </ng-container>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </div>
+
+        <div class="py-6">
+          <div *ngFor="let social of socials">
+            <a [href]="social.link" target="_blank">
+              <img
+                class="filter invert float-left mr-3"
+                height="50px"
+                width="50px"
+                [src]="social.svg"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
