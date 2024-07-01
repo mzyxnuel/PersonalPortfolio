@@ -12,8 +12,8 @@ importers:
         specifier: ^0.5.10
         version: 0.5.10(typescript@5.4.5)
       '@astrojs/react':
-        specifier: ^3.3.2
-        version: 3.3.2(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.2.11(@types/node@20.12.10))
+        specifier: ^3.6.0
+        version: 3.6.0(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.2.11(@types/node@20.12.10))
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.7.1(@types/node@20.12.10)(typescript@5.4.5))(tailwindcss@3.4.3)
@@ -99,14 +99,14 @@ packages:
     resolution: {integrity: sha512-Z9IYjuXSArkAUx3N6xj6+Bnvx8OdUSHA8YoOgyepp3+zJmtVYJIl/I18GozdJVW1p5u/CNpl3Km7/gwTJK85cw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
 
-  '@astrojs/react@3.3.2':
-    resolution: {integrity: sha512-UNdOZ+qFjTZkfz5A8PauMpRh+qD1NPFdHB0GT4ksBbY4fghcbgU1p8Ugy696glL3/nwwIdq44I/KS2vMFxZzTA==}
+  '@astrojs/react@3.6.0':
+    resolution: {integrity: sha512-YGLxy5jCU9xKG/HAvYsWMcvrQVIhqVe0Sda3Z5UtP32rfXeG6B9J1xQvnx+kRSFTpIrj+7AwPSDSehLbCHJ56w==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       '@types/react': ^17.0.50 || ^18.0.21
       '@types/react-dom': ^17.0.17 || ^18.0.6
-      react: ^17.0.2 || ^18.0.0
-      react-dom: ^17.0.2 || ^18.0.0
+      react: ^17.0.2 || ^18.0.0 || ^19.0.0-beta
+      react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0-beta
 
   '@astrojs/tailwind@5.1.0':
     resolution: {integrity: sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==}
@@ -682,8 +682,8 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@vitejs/plugin-react@4.2.1':
-    resolution: {integrity: sha512-oojO9IDc4nCUUi8qIR11KoQm0XFFLIwsRBwHRR4d/88IWghn1y6ckz/bJ8GHDCsYEJee8mDzqtJxh15/cisJNQ==}
+  '@vitejs/plugin-react@4.3.1':
+    resolution: {integrity: sha512-m/V2syj5CuVnaxcUJOQRel/Wr31FFXRFlnOoq1TVtkCxsY5veGMTEmpWHndrhB2U8ScHtCQB1e+4hWYExQc6Lg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0
@@ -2303,11 +2303,11 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/react@3.3.2(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.2.11(@types/node@20.12.10))':
+  '@astrojs/react@3.6.0(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.2.11(@types/node@20.12.10))':
     dependencies:
       '@types/react': 18.3.1
       '@types/react-dom': 18.3.0
-      '@vitejs/plugin-react': 4.2.1(vite@5.2.11(@types/node@20.12.10))
+      '@vitejs/plugin-react': 4.3.1(vite@5.2.11(@types/node@20.12.10))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       ultrahtml: 1.5.3
@@ -2813,7 +2813,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.2.1(vite@5.2.11(@types/node@20.12.10))':
+  '@vitejs/plugin-react@4.3.1(vite@5.2.11(@types/node@20.12.10))':
     dependencies:
       '@babel/core': 7.24.5
       '@babel/plugin-transform-react-jsx-self': 7.24.5(@babel/core@7.24.5)
